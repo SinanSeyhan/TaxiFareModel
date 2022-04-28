@@ -1,0 +1,15 @@
+artifact_uri: file:///home/sinan/code/SinanSeyhan/TaxiFareModel/mlruns/1/8ce834111189441aa1c003d9672c447c/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '1'
+lifecycle_stage: active
+name: ''
+run_id: 8ce834111189441aa1c003d9672c447c
+run_uuid: 8ce834111189441aa1c003d9672c447c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1651163463631
+status: 1
+tags: []
+user_id: unknown
