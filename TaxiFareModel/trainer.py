@@ -8,10 +8,12 @@ from sklearn.pipeline import Pipeline
 from TaxiFareModel.encoders import TimeFeaturesEncoder, DistanceTransformer
 from TaxiFareModel.utils import compute_rmse
 from TaxiFareModel.data import get_data, clean_data
+
 import mlflow
 from mlflow.tracking import MlflowClient
 from memoized_property import memoized_property
 
+import joblib
 
 
 class Trainer():
@@ -86,6 +88,9 @@ class Trainer():
         self.mlflow_client.log_metric(self.mlflow_run.info.run_id, key, value)
 
 
+    def save_model(self):
+        """ Save the trained model into a model.joblib file """
+        joblib.dump(self.mlflow_client,  self.EXPERIMENT_NAME)
 
 
 
@@ -112,3 +117,4 @@ if __name__ == "__main__":
 
     trainer.mlflow_log_param('estimator', trainer)
     trainer.mlflow_log_metric('rmse', trainer.evaluate(X_test, y_test))
+    trainer.save_model()
